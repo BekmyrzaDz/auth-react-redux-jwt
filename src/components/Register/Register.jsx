@@ -8,7 +8,7 @@ import { clearMessage } from "../../redux/features/auth/message";
 
 import styles from "./Register.module.scss";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 
 const Register = () => {
@@ -86,13 +86,13 @@ const Register = () => {
     <div className={styles.signup}>
       <div className={styles.signupForm}>
         <div className={`${styles.card} ${styles.cardContainer}`}>
-          {/* <div className={styles.profileImg}>
+          <div className={styles.profileImg}>
             <img
               src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
               alt="profile-img"
               className={styles.profileImgAvatar}
             />
-          </div> */}
+          </div>
           <h2>Sign Up</h2>
           {/* <h3>Welcome my dear user!</h3> */}
           <Formik
@@ -176,6 +176,11 @@ const Register = () => {
               )}
             </Form>
           </Formik>
+        </div>
+
+        <div className={styles.already}>
+          <span>Signed up already?</span>
+          <Link to="/login">Login here</Link>
         </div>
 
         {message && (

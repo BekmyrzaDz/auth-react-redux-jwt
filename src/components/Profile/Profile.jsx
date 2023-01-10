@@ -3,6 +3,7 @@ import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import styles from "./Profile.module.scss";
+import { Container } from "@mui/material";
 
 const Profile = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
@@ -12,11 +13,29 @@ const Profile = () => {
   }
 
   return (
-    <div className={styles.container}>
-      <header className="jumbotron">
-        <h3>
-          <strong>{currentUser.user.name}</strong> Profile
-        </h3>
+    <div className={styles.profile}>
+      <header className={styles.header}>
+        <Container maxWidth="1220px">
+          <div className={styles.headerInner}>
+            <div>
+              <h3>Logo</h3>
+            </div>
+            <div className={styles.user}>
+              <h3>
+                <strong>{currentUser.user.name}</strong>
+                <strong> | </strong>
+                <strong>{currentUser.user.email}</strong>
+              </h3>
+              <div className={styles.profileImg}>
+                <img
+                  className={styles.profileImgAvatar}
+                  src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                  alt="profile-img"
+                />
+              </div>
+            </div>
+          </div>
+        </Container>
       </header>
       <p>
         <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}
