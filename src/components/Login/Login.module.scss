@@ -22,7 +22,6 @@
     background: $black;
     text-align: center;
     .card {
-      // padding: 40px 0 12px;
       .profileImg {
         margin: 0 auto 16px;
         border-radius: 50%;
@@ -41,16 +40,14 @@
       & > h2 {
         font-size: 36px;
         font-weight: 500;
+        margin: 0 0 4px;
+      }
+      & > h3 {
+        color: $gray;
+        font-size: 16px;
+        font-weight: 500;
         margin: 0 0 30px;
       }
-      // & > h3 {
-      //   color: $gray;
-      //   font-size: 16px;
-      //   font-weight: 500;
-      //   margin: 0 0 30px;
-      // }
-    }
-    .card-container {
     }
     .form {
       display: grid;

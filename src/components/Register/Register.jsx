@@ -24,7 +24,7 @@ const Register = () => {
     dispatch(clearMessage());
   }, [dispatch]);
 
-  const handleButton = () => navigate("/login");
+  const handleClick = () => navigate("/login");
 
   const initialValues = {
     name: "",
@@ -86,15 +86,15 @@ const Register = () => {
     <div className={styles.signup}>
       <div className={styles.signupForm}>
         <div className={`${styles.card} ${styles.cardContainer}`}>
-          <div className={styles.profileImg}>
+          {/* <div className={styles.profileImg}>
             <img
               src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
               alt="profile-img"
               className={styles.profileImgAvatar}
             />
-          </div>
+          </div> */}
           <h2>Sign Up</h2>
-          <h3>Welcome my dear user!</h3>
+          {/* <h3>Welcome my dear user!</h3> */}
           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
@@ -189,9 +189,11 @@ const Register = () => {
               role="alert"
             >
               {message}
-              <button onClick={handleButton} className={styles.btn}>
-                Ok
-              </button>
+              {successful && (
+                <button onClick={handleClick} className={styles.btn}>
+                  Ok
+                </button>
+              )}
             </div>
           </div>
         )}
