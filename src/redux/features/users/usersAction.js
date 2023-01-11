@@ -1,16 +1,16 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import AuthService from "../../../services/authService";
+import userService from "../../../services/usersService";
+import { setMessage } from "../auth/message";
 
-const user = JSON.parse(localStorage.getItem("user"));
-
-export const register = createAsyncThunk(
-  "auth/register",
-  async ({ name, email, password, age }, thunkAPI) => {
+export const fetchUsers = createAsyncThunk(
+  "users/fetchUsers",
+  async (userId, thunkAPI) => {
     try {
-      const response = await AuthService.register(name, email, password, age);
+      const response = await userService.getUsersBoard();
       thunkAPI.dispatch(setMessage(response.data.message));
       return response.data;
     } catch (error) {
+      console.error(error);
       const message =
         (error.response &&
           error.response.data &&

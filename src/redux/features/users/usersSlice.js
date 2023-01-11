@@ -12,7 +12,6 @@ const initialState = {
 export const usersSlice = createSlice({
   name: "users",
   initialState,
-  reducers: {},
   extraReducers: {
     [fetchUsers.pending]: (state) => {
       state.isLoading = true;

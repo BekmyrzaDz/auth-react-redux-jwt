@@ -1,8 +1,9 @@
 import { api } from "../api/api";
-import authHeader from "./auth-header";
+import authHeader from "./authHeader";
 
 const getUsersBoard = () => {
-  return api.get("/users", { headers: authHeader() });
+  return api.get("/users");
+  // , { headers: authHeader() }
 };
 
 const getMeBoard = () => {
