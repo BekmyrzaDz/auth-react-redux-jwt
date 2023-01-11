@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import eventBus from "../../../common/EventBus";
 import userService from "../../../services/usersService";
 import { setMessage } from "../auth/message";
 
@@ -18,6 +19,11 @@ export const fetchUsers = createAsyncThunk(
         error.message ||
         error.toString();
       thunkAPI.dispatch(setMessage(message));
+
+      if (error.response && error.response.status === 401) {
+        eventBus.dispatch("logout");
+      }
+
       return thunkAPI.rejectWithValue();
     }
   }

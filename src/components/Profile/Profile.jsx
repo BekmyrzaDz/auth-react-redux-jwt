@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -7,13 +7,11 @@ import { Container } from "@mui/material";
 
 import Table from "./Table";
 import { fetchUsers } from "../../redux/features/users/usersAction";
+import { logout } from "../../redux/features/auth/auth";
+import eventBus from "../../common/EventBus";
 
 const Profile = () => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
 
   const { user: currentUser } = useSelector((state) => state.auth);
   const { users: users } = useSelector((state) => state.user);
@@ -21,6 +19,22 @@ const Profile = () => {
   if (!currentUser) {
     return <Navigate to="/login" />;
   }
+
+  const logOut = useCallback(() => {
+    dispatch(logout());
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+
+    eventBus.on("logout", () => {
+      logOut();
+    });
+
+    return () => {
+      eventBus.remove("logout");
+    };
+  }, [dispatch, currentUser, logOut]);
 
   return (
     <div className={styles.profile}>
