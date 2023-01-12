@@ -48,6 +48,12 @@ export const logout = createAsyncThunk("auth/logout", async () => {
   await authService.logout();
 });
 
+// export const refreshToken = (accessToken) => (dispatch) => {
+//   dispatch({
+//     payload: accessToken,
+//   })
+// }
+
 const initialState = user
   ? { isLoggedIn: true, user }
   : { isLoggedIn: false, user: null };

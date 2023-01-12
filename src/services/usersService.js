@@ -2,7 +2,7 @@ import { api } from "../api/api";
 import authHeader from "./authHeader";
 
 const getUsersBoard = () => {
-  return api.get("/users");
+  return api.get("/users", { headers: authHeader() });
   // , { headers: authHeader() }
 };
 
