@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -35,8 +35,9 @@ const Login = () => {
   });
 
   const handleLogin = (formValue) => {
-    const { email, password } = formValue;
     setLoading(true);
+
+    const { email, password } = formValue;
 
     dispatch(login({ email, password }))
       .unwrap()
@@ -135,6 +136,11 @@ const Login = () => {
             </div>
           </div>
         )}
+
+        <div className={styles.already}>
+          <span>Do you want sign up?</span>
+          <Link to="/register">Sign Up</Link>
+        </div>
       </div>
     </div>
   );

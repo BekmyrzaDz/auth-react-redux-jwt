@@ -178,11 +178,6 @@ const Register = () => {
           </Formik>
         </div>
 
-        <div className={styles.already}>
-          <span>Signed up already?</span>
-          <Link to="/login">Login here</Link>
-        </div>
-
         {message && (
           <div className={`${styles.formGroup} ${styles.message}`}>
             <div
@@ -202,6 +197,11 @@ const Register = () => {
             </div>
           </div>
         )}
+
+        <div className={styles.already}>
+          <span>Signed up already?</span>
+          <Link to="/login">Login here</Link>
+        </div>
       </div>
     </div>
   );

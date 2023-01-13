@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Route, Routes, useLocation } from "react-router-dom";
 
 import "./App.scss";
-// import styles from "./Header.module.scss";
 
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
@@ -15,20 +14,22 @@ import { useCallback, useEffect } from "react";
 import Header from "./components/Header/Header";
 
 function App() {
-  // const location = useLocation();
-  // const { pathname } = location;
-  // console.log(pathname);
+  const location = useLocation();
+  const { pathname } = location;
+  console.log(location);
+  console.log(pathname);
+  console.log(pathname == "/register" || pathname == "/login");
+  // console.log(pathname && "/login");
 
   return (
     <div className="App">
-      {/* {pathname !== "/login" || pathname !== "/register" ? <Header /> : <></>} */}
-      <Header />
+      {pathname == "/register" || pathname == "/login" ? <></> : <Header />}
 
       <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>

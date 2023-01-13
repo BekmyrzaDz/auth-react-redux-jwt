@@ -102,23 +102,10 @@
         }
       }
     }
-    .already {
-      padding: 8px 0 0;
-      font-family: inherit;
-      font-size: 16px;
-      & > span {
-        padding-right: 5px;
-        font-size: 16px;
-      }
-      & > a {
-        text-decoration: none;
-        color: $blue;
-      }
-    }
     .message {
       width: 100%;
       & > .alert {
-        padding: 2px 0 0 0;
+        padding: 12px 0 0 0;
         font-size: 12px;
       }
       & > .alertSuccess {
@@ -140,6 +127,20 @@
       }
       & > .alertDanger {
         color: $error;
+      }
+    }
+    .already {
+      padding: 8px 0 0;
+      font-family: inherit;
+      font-size: 14px;
+      & > span {
+        padding-right: 5px;
+        font-size: inherit;
+      }
+      & > a {
+        text-decoration: none;
+        color: $blue;
+        font-size: inherit;
       }
     }
   }

@@ -72,3 +72,11 @@
     }
   }
 }
+
+@media (width <= 620px) {
+  .user {
+    & > h3 {
+      display: none;
+    }
+  }
+}
