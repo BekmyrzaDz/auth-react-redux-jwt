@@ -11,7 +11,6 @@ export const fetchUsers = createAsyncThunk(
       thunkAPI.dispatch(setMessage(response.data.message));
       return response.data;
     } catch (error) {
-      console.error(error);
       const message =
         (error.response &&
           error.response.data &&

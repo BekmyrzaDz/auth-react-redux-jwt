@@ -3,7 +3,6 @@ import authHeader from "./authHeader";
 
 const getUsersBoard = () => {
   return api.get("/users", { headers: authHeader() });
-  // , { headers: authHeader() }
 };
 
 const getMeBoard = () => {

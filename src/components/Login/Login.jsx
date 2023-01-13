@@ -108,10 +108,6 @@ const Login = () => {
                     className="btn btn-primary btn-block"
                     disabled={loading}
                   >
-                    {/* {loading && (
-                    <span className="spinner-border spinner-border-sm"></span>
-                    <CircularProgress color="secondary" />
-                  )} */}
                     <span>
                       {loading ? (
                         <CircularProgress color="secondary" />
