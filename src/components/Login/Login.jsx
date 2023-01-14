@@ -42,7 +42,7 @@ const Login = () => {
     dispatch(login({ email, password }))
       .unwrap()
       .then(() => {
-        navigate("/home");
+        navigate("/");
         window.location.reload();
       })
       .catch(() => {
@@ -51,7 +51,7 @@ const Login = () => {
   };
 
   if (isLoggedIn) {
-    return <Navigate to="/home" />;
+    return <Navigate to="/" />;
   }
 
   return (

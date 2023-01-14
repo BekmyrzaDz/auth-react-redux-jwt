@@ -54,7 +54,7 @@ const Header = () => {
                   </Link>
                 </div>
 
-                <a href="/home" className="nav-link" onClick={logOut}>
+                <a href="/" className="nav-link" onClick={logOut}>
                   LogOut
                 </a>
               </div>
